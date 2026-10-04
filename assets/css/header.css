@@ -1,0 +1,44 @@
+.header {
+  padding-bottom: 60px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header__title {
+  font-size: 24px;
+}
+
+.header__link {
+  color: inherit;
+  font-weight: 900;
+  font-size: 24px;
+  text-decoration: none;
+}
+
+.header__link:hover {
+  text-decoration: underline;
+}
+
+@media screen and (max-width: 600px) {
+  .header {
+    padding-bottom: 20px;
+
+    .header__title {
+      padding-bottom: 20px;
+    }
+
+    .header__link {
+      padding-bottom: 20px;
+    }
+  }
+}
+
+@media (max-width: 360px) {
+  .header__link {
+    font-size: 16px;
+  }
+  .header__title {
+    font-size: 16px;
+  }
+}

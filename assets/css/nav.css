@@ -1,0 +1,22 @@
+.nav__links {
+  list-style-type: none;
+  display: flex;
+  gap: 24px;
+}
+
+.nav__link {
+  font-weight: 500;
+  font-size: 16px;
+  color: inherit;
+  text-decoration: none;
+}
+
+.nav__link:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 360px) {
+  .nav__links {
+    font-size: 18px;
+  }
+}

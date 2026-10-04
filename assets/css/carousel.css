@@ -1,0 +1,93 @@
+.carousel {
+  padding: 100px 0;
+}
+
+.carousel__title {
+  font-weight: 700;
+  font-size: 32px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.carousel__grid {
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  grid-template-areas: "left-btn card right-btn";
+}
+
+.carousel__btn {
+  background-color: #fff;
+  width: 44px;
+  height: 44px;
+  border-radius: 8px;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.carousel__btn_type_left {
+  grid-area: left-btn;
+}
+
+.carousel__btn_type_right {
+  grid-area: right-btn;
+}
+
+.carousel__btn_type_left::before {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-image: url("../images/left-arrow.svg");
+  opacity: 50%;
+}
+
+.carousel__btn_type_right::before {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-image: url("../images/right-arrow.svg");
+  opacity: 50%;
+}
+
+.carousel__btn:hover::before {
+  opacity: 100%;
+}
+
+.carousel__btn_disabled::before {
+  opacity: 20%;
+}
+
+.carousel__btn_disabled:hover::before {
+  opacity: 20%;
+  cursor: default;
+}
+
+.carousel__image {
+  width: 100%;
+  max-width: 390px;
+  border-radius: 16px;
+  display: block;
+  grid-area: card;
+}
+
+@media screen and (max-width: 600px) {
+  .carousel {
+    padding: 0;
+  }
+
+  .carousel__title {
+    font-size: 32px;
+    margin-bottom: 20px;
+  }
+
+  .carousel__grid {
+    grid-template-areas: "card card card" "left-btn . right-btn";
+  }
+}
