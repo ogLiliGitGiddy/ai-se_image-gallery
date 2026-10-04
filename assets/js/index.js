@@ -5,6 +5,16 @@ const homeSection = document.querySelector("#home");
 const carouselSection = document.querySelector("#carousel");
 const notFoundSection = document.querySelector("#not-found");
 
+// global select from document
+const confirmationModel = document.querySelector("#confirmation-modal");
+// select buttons from confirmation modal
+const cancelBtnE1 = confirmationModel.querySelector(".modal__btn_type_cancel");
+const confirmBtnE1 = confirmationModel.querySelector(
+  ".modal__btn_type_confirm",
+);
+// global variable to hold the image element that is being deleted. declare a variable initialize it to null
+let currentImageEl = null;
+
 function renderHomeView() {
   homeSection.style.display = "block";
   carouselSection.style.display = "none";
@@ -28,7 +38,11 @@ function renderHomeView() {
 
     const deleteBtn = cloneEl.querySelector(".gallery__btn_type_delete");
     deleteBtn.addEventListener("click", () => {
-      cloneEl.remove();
+      // remove the code that deletes the deck element: cloneEl.remove();
+      // make the modal visible by adding the modifier
+      confirmationModel.classList.add("modal__visible");
+      // add the cloneEl to the global variable imageToDelete to delete the correct image.
+      currentImageEl = cloneEl;
     });
 
     return cloneEl;
@@ -66,6 +80,20 @@ function router() {
     renderNotFoundView();
   }
 }
+
+// event listeners for modal buttons
+cancelBtnE1.addEventListener("click", () => {
+  confirmationModel.classList.remove("modal__visible");
+  // reset the global variable to null when the modal is closed without deletion
+  currentImageEl = null;
+});
+
+confirmBtnE1.addEventListener("click", () => {
+  confirmationModel.classList.remove("modal__visible");
+  // add click event listener to the confirm button that removes the image element from the DOM
+  currentImageEl.remove();
+  currentImageEl = null; // reset the global variable to null after deletion
+});
 
 window.addEventListener("DOMContentLoaded", router);
 window.addEventListener("hashchange", router);

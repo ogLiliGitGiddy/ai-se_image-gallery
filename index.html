@@ -58,6 +58,20 @@
       </section>
     </main>
 
+    <div id="confirmation-modal" class="modal">
+      <div class="modal__container">
+        <p class="modal__text">Are you sure you want to delete this image?</p>
+        <div class="modal__buttons">
+          <button type="button" class="modal__btn modal__btn_type_cancel">
+            Cancel
+          </button>
+          <button type="button" class="modal__btn modal__btn_type_confirm">
+            Delete
+          </button>
+        </div>
+      </div>
+    </div>
+
     <template id="image-template">
       <li class="gallery__list-item">
         <img class="gallery__image" src="#" alt="" />

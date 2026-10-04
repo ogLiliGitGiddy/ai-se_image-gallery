@@ -1,0 +1,38 @@
+@media screen and (max-width: 850px) {
+  .page {
+    padding-bottom: 100px; /* changed from 40px to 100px */
+  }
+
+  /* fade bar */
+  .page::after {
+    content: " "; /* insert invisible box, need empty quotes to generate the box */
+    position: fixed;
+    height: 156px;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(to bottom, transparent 0%, #ececec 50%);
+    pointer-events: none; /* so the bar doesn't block clicks on gallery items behind it */
+    z-index: 1; /* above the gallery images is 0 but below the button is 2 */
+  }
+
+  /* must move this to let the gradient show */
+  .gallery__new-image-btn {
+    position: fixed; /* changed from absolute to fixed */
+    bottom: 39px; /* changed from 20px to 39px */
+    left: 0; /* center button horizontally */
+    right: 0; /* center button horizontally */
+    margin: 0 auto; /* center button horizontally */
+    z-index: 2; /* changed from 1 to 2 */
+    padding: 12px 0 14px 0;
+    font-size: 18px; /* changed from 16px to 18px */
+    line-height: 1; /* changed from 1.5 to 1 */
+    background-color: #000; /* changed from #d9d9d9 to #000 */
+    color: #fff; /* changed from #1a1a1a80 to #fff */
+    border-radius: 8px; /* changed from 12px to 8px */
+    width: calc(100% -40px); /* changed from 100% to calc(100% -40px) */
+    max-width: 353px; /* changed from 325px to 353px */
+    aspect-ratio: auto; /* changed from 325/224 to auto */
+    height: auto; /* changed from auto to auto */
+  }
+}
